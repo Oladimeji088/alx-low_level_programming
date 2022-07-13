@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
  * print_diagonal - check for a digit
  *@n : number of \\ to be printed
