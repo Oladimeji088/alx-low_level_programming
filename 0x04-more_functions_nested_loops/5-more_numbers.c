@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio.h>
+
 /**
  * print_diagonal - check for a digit
  *@n : number of \\ to be printed
@@ -7,17 +7,26 @@
  */
 void more_numbers(void)
 {
-	int i, j = 0;
+	char n, c;
+	int i = 0;
 
-	for (; j < 10; j++)
+	while (i < 10)
 	{
-		for (i = 0; i <= 14; i++)
+		for (n = 0; n <= 14; n++)
 		{
-			if (i > 9)
-				_putchar(i / 10 +'0');
-
-			_putchar(i % 10 + '0');
+			c = n;
+			if (n > 9)
+			{
+				_putchar('1');
+				c = n % 10;
+			}
+	
+			_putchar('0' + c);
+		
 		}
+		
 		_putchar('\n');
+		i++;
 	}
+
 }
