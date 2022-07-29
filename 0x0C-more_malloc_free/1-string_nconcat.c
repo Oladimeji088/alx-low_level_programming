@@ -1,24 +1,43 @@
 #include "main.h"
 #include <stdlib.h>
+#include <string.h>
 
 /**
- * _calloc - allocates memory for an array
- * @nmemb: function parameter
- * @size: func para
- * Return: void
+ * string_nconcat - concatenates two strings
+ * @s1: first string to join
+ * @s2: string to join
+ * @n: no
+ * Return: NULL or pointer
  */
-
-void *_calloc(unsigned int nmemb, unsigned int size)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
+	unsigned int i, len1 = 0, len2 = 0;
 	char *p;
 
-	if (nmemb <= 0 || size <= 0)
-		return (NULL);
-	p = malloc(nmemb * size);
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+	len1 = strlen(s1);
+	len2 = strlen(s2);
+	if (n > len2)
+		n = len2;
+	p = malloc(len1 + n + 1);
 	if (p == NULL)
 		return (NULL);
-	nmemb *= size;
-	while (nmemb--)
-		p[nmemb] = 0;
-	return ((void *)p);
+	for (i = 0; i < len1 + n; i++)
+	{
+		if (*s1)
+		{
+			p[i] = *s1;
+			s1++;
+		}
+		else
+		{
+			p[i] = *s2;
+			s2++;
+		}
+	}
+	p[i] = '\0';
+	return (p);
 }
